@@ -1,6 +1,6 @@
 'use strict';
-import glob from 'glob-to-regexp';
-import express from 'path-to-regexp';
+const glob = require('glob-to-regexp')
+const express = require('path-to-regexp');
 
 const stringMatchers = {
 	begin: targetString => {
@@ -82,7 +82,7 @@ function normalizeRequest (url, options, Request) {
 	}
 }
 
-export default function (route, Request, HeadersConstructor) {
+module.exports = function (route, Request, HeadersConstructor) {
 	route = Object.assign({}, route);
 
 	if (typeof route.response === 'undefined') {
@@ -104,7 +104,7 @@ export default function (route, Request, HeadersConstructor) {
 
 	function matchMethod (method) {
 		return !expectedMethod || expectedMethod === (method ? method.toLowerCase() : 'get');
-	}
+	};
 
 	const matchHeaders = route.headers ? getHeaderMatcher(route.headers, HeadersConstructor) : (() => true);
 

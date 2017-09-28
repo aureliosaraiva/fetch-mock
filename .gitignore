@@ -1,9 +1,6 @@
-/bower_components/
-/node_modules/
-npm-debug.log
-/es5/
-/dist/
-test/fixtures/built-sw.js
-_site
-.sass-cache
-.jekyll-metadata
+node_modules
+bower_components
+tmp
+dist
+build
+/.node_modules.ember-try

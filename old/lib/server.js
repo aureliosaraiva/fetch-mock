@@ -1,13 +1,13 @@
-import fetch from 'node-fetch';
-import stream from 'stream';
-import FetchMock from './fetch-mock';
-import http from 'http';
-
+'use strict';
+const fetch = require('node-fetch');
 const Request = fetch.Request;
 const Response = fetch.Response;
 const Headers = fetch.Headers;
+const stream = require('stream');
+const FetchMock = require('./fetch-mock');
+const http = require('http');
 
-// FetchMock.global = global;
+FetchMock.global = global;
 FetchMock.statusTextMap = http.STATUS_CODES;
 FetchMock.stream = stream;
 
@@ -18,5 +18,4 @@ FetchMock.setImplementations({
 	Headers: Headers
 });
 
-const instance =  new FetchMock();
-export default instance;
+module.exports = new FetchMock()

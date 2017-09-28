@@ -1,7 +1,7 @@
 'use strict';
 
-import FetchMock from './fetch-mock';
-import statusTextMap from './status-text';
+const FetchMock = require('./fetch-mock');
+const statusTextMap = require('./status-text');
 const theGlobal = typeof window !== 'undefined' ? window : self;
 
 FetchMock.global = theGlobal;
@@ -14,5 +14,4 @@ FetchMock.setImplementations({
 	Headers: theGlobal.Headers
 });
 
-const instance = new FetchMock();
-export  default instance;
+module.exports = new FetchMock()

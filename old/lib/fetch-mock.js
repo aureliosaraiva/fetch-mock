@@ -1,6 +1,6 @@
 'use strict';
 
-import compileRoute from './compile-route';
+const compileRoute = require('./compile-route');
 
 const FetchMock = function () {
 
@@ -234,7 +234,7 @@ e.g. {"body": {"status: "registered"}}`);
 FetchMock.prototype.respond = function (response, resolveHoldingPromise) {
 	response
 		.then(resolveHoldingPromise, resolveHoldingPromise)
-
+	
 	return response;
 }
 
@@ -384,4 +384,4 @@ FetchMock.prototype.sandbox = function (Promise) {
 	})
 
 
-export default FetchMock;
+module.exports = FetchMock;
